@@ -1,3 +1,14 @@
+This application is designed to be used in fast typing tests with the keyboard.
+Technologies used in this application prepared with React.js:
+react-redux
+reduxjs/toolkit
+react-router-dom
+styled-components
+tailwindcss
+sweetalert2
+react-countdown-circle-timer
+
+Live Demo: https://fast-fingers-react.vercel.app/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
