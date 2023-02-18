@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { MdOutlineRestartAlt } from "react-icons/md";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,9 +35,9 @@ const Header = () => {
       });
     } else {
       return (
-        <div>
-          {remainingTime} <br />
-          <span className="text-slate-800"> Seconds </span>
+        <div className="flex flex-col">
+          <span className="text-[18px]"> {remainingTime} </span>
+          <span className="text-slate-800 text-sm"> Seconds </span>
         </div>
       );
     }
@@ -46,38 +45,37 @@ const Header = () => {
 
   return (
     <header
-      className="mx-auto container sticky top-0 bg-white shadow-md flex items-center text-center justify-center px-8 py-02"
+      className="flex items-center text-center justify-around sticky shadow-md py-2 px-8 py-02 w-full"
       style={{
         background:
           "radial-gradient(circle, rgba(231,175,204,1) 8%, rgba(184,47,107,1) 15%, rgba(158,186,230,1) 81%, rgba(148,187,233,1) 91%)",
       }}
     >
       {/* timer */}
-      <div className="w-4/12 text-center flex flex-wrap items-center">
-   
+      <div>
           <CountdownCircleTimer
             key={time}
             isPlaying={start === true ? true : false}
             duration={time}
             colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
             colorsTime={[7, 5, 2, 0]}
-            size={100}
+            size={90}
             unit="vw"
             strokeWidth={8}
           >
             {renderTime}
           </CountdownCircleTimer>
-   
       </div>
 
       {/* title */}
-      <div className="w-4/12 ">
+      <div className="">
         <nav className="nav font-semibold text-lg">
           <h1 className="text-[#35b8ad] font-bold text-[32px]">How fast are you?</h1>
         </nav>
       </div>
+
       {/* options -*/}
-      <div className="w-4/12 flex justify-end items-center">
+      <div className="flex justify-end items-center">
         <select name="Lang" onChange={handleChange} className="flex justify-center items-center w-24 h-9 text-gray-600 border-none mr-4 rounded-md">
           <option value="turkishWord" disabled={selectedLang === "turkishWord"} className="text-black flex min-h-5 p-2">
             Turkish
