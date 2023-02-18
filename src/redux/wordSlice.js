@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import wordse from "../data";
+import wordDatas from "../utils/data";
 
 export const formul = (array) => {
   let currentIndex = array.length,
     randomIndex;
 
-  // karıstırılacak ögeler varsa.
+  // mixed words in data
   while (currentIndex !== 0) {
-    // biri secilir.
+    // random choise
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // burada digeriyle degisir.
+    // change randon text with line word
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
@@ -24,7 +24,7 @@ export const formul = (array) => {
 export const wordSlice = createSlice({
   name: "speed",
   initialState: {
-    word: formul(wordse),
+    word: formul(wordDatas),
     lang: ["turkishWord", "englishWord"],
     selectedLang: "",
     inputText: "",
@@ -46,12 +46,11 @@ export const wordSlice = createSlice({
     setGameStart: (state) => {
       state.start = true;
     },
-    //inputa yazı yazılmaya basladıgında çalısacak func.
+    //handle input func
     setInputText: (state, action) => {
       const text = action.payload.trim();
       if (text) {
         state.inputText = action.payload;
-        console.log("inputText", state.inputText);
       } else {
         state.inputText = "";
       }
@@ -65,18 +64,12 @@ export const wordSlice = createSlice({
       ) {
         state.correctWord++;
         currentText.status = "correct";
-
-        console.log("correctWord ", state.correctWord);
-        console.log(currentText);
       } else {
         state.wrongWord++;
         currentText.status = "wrong";
-
-        console.log("wrongword ", state.wrongWord);
-        console.log(currentText);
       }
       state.wordIndex++;
-      state.inputText = ""; //her bosluktan sonra inputu bosalt
+      state.inputText = ""; //emptying the input
     },
     setReplay: (state) => {
       console.log("setReplay");

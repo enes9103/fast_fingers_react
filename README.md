@@ -1,7 +1,3 @@
-![onparmak-redux](https://user-images.githubusercontent.com/106928233/207989232-8b9483cc-0870-44ad-8c44-88a2da86773c.gif)
-
-
-https://redux-onparmak.vercel.app/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

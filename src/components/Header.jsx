@@ -5,37 +5,8 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useSelector, useDispatch } from "react-redux";
 import { setReplay, setSelectedLang } from "../redux/wordSlice";
 
-const Select = styled.select`
-  width: 100px;
-  height: 35px;
-  color: gray;
-  padding-left: 5px;
-  font-size: 14px;
-  border: none;
-  margin-right: 1rem;
-
-  option {
-    color: black;
-    display: flex;
-    white-space: pre;
-    min-height: 20px;
-    padding: 0px 2px 1px;
-  }
-`;
-const Baslik = styled.h1`
-  color: #35b8ad;
-  font-weight: bold;
-  font-size: 2rem;
-`;
-const TimerWrapper = styled.div`
-  /* position: absolute; */
-  width: 10px;
-  /* top: 27%;
-  left: 17%; */
-  /* transform: translate(-50%, -50%); */
-`;
-
 const Header = () => {
+  
   const handleChange = (e) => {
     console.log(e.target.value);
     dispatch(setSelectedLang(e.target.value));
@@ -46,7 +17,7 @@ const Header = () => {
   const wrongWord = useSelector((state) => state.speed.wrongWord);
   const correctWord = useSelector((state) => state.speed.correctWord);
   const selectedLang = useSelector((state) => state.speed.selectedLang);
-  // console.log(time,start)
+
   //swal
   const Swal = require("sweetalert2");
 
@@ -67,7 +38,7 @@ const Header = () => {
       return (
         <div>
           {remainingTime} <br />
-          <span className="text-slate-800"> saniye </span>
+          <span className="text-slate-800"> Seconds </span>
         </div>
       );
     }
@@ -81,8 +52,7 @@ const Header = () => {
           "radial-gradient(circle, rgba(231,175,204,1) 8%, rgba(184,47,107,1) 15%, rgba(158,186,230,1) 81%, rgba(148,187,233,1) 91%)",
       }}
     >
-      {/* logo */}
-
+      {/* timer */}
       <div className="w-4/12 text-center flex flex-wrap items-center">
    
           <CountdownCircleTimer
@@ -100,22 +70,22 @@ const Header = () => {
    
       </div>
 
-      {/* navigation */}
+      {/* title */}
       <div className="w-4/12 ">
         <nav className="nav font-semibold text-lg">
-          <Baslik>Ne Kadar Hızlısın?</Baslik>
+          <h1 className="text-[#35b8ad] font-bold text-[32px]">How fast are you?</h1>
         </nav>
       </div>
-      {/* buttons -*/}
-      <div className="w-4/12 flex justify-end">
-        <Select name="Lang" onChange={handleChange}>
-          <option value="turkishWord" disabled={selectedLang === "turkishWord"}>
-            Türkçe
+      {/* options -*/}
+      <div className="w-4/12 flex justify-end items-center">
+        <select name="Lang" onChange={handleChange} className="flex justify-center items-center w-24 h-9 text-gray-600 border-none mr-4 rounded-md">
+          <option value="turkishWord" disabled={selectedLang === "turkishWord"} className="text-black flex min-h-5 p-2">
+            Turkish
           </option>
-          <option value="englishWord" disabled={selectedLang === "englishWord"}>
-            İngilizce
+          <option value="englishWord" disabled={selectedLang === "englishWord"} className="text-black flex min-h-5 p-2">
+            English
           </option>
-        </Select>
+        </select> 
 
         <button onClick={() => dispatch(setReplay())}>
           <MdOutlineRestartAlt size={40} className="animas" />
