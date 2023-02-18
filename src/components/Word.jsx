@@ -25,8 +25,13 @@ const Word = ({ index, letter }) => {
       }
   
     // correct or wrong style
-    ${letter.status === "wrong" ? "text-red-500" : ""}
-     ${letter.status === "correct" ? "text-green-600 " : ""}
+    ${
+      letter.status === "wrong"
+        ? "text-red-500"
+        : letter.status === "correct"
+        ? "text-green-500"
+        : ""
+    }
         `}
     >
       {letter[selectedLang ? selectedLang : lang[0]]}

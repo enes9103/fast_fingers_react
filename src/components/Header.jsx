@@ -47,9 +47,8 @@ const Header = () => {
     <header
       className="flex items-center text-center justify-around sticky shadow-md py-2 px-8 py-02 w-full"
       style={{
-        background:
-          "radial-gradient(circle, rgba(231,175,204,1) 8%, rgba(184,47,107,1) 15%, rgba(158,186,230,1) 81%, rgba(148,187,233,1) 91%)",
-      }}
+        backgroundImage: 'linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%)'
+    }}
     >
       {/* timer */}
       <div>
